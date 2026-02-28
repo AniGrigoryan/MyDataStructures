@@ -1,0 +1,17 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="LinkedList" />
+    <BuildType Name="Release" />
+    <BuildType Name="Stack" />
+  </Configurations>
+  <Project Path="MyLinkedListProj/MyLinkedListProj.csproj" />
+  <Project Path="MyStackProj/MyStackProj.csproj">
+    <BuildType Solution="LinkedList|*" Project="Release" />
+    <BuildType Solution="Stack|*" Project="Debug" />
+  </Project>
+  <Project Path="Testing_DataStructures/Testing_DataStructures.csproj">
+    <BuildType Solution="LinkedList|*" Project="Release" />
+    <BuildType Solution="Stack|*" Project="Debug" />
+  </Project>
+</Solution>
