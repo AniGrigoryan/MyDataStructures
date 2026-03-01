@@ -115,45 +115,59 @@ public class MyLinkedList<T> : ICollection<T>
     }
     #endregion Add
     #region Remove
-    /// NOTE: Must not use value
-    //public void RemoveFirst(T value)
-    //{
-    //    RemoveFirst(new MyLinkedListNode<T>(value));
-    //}
+    /// <summary>
+    /// Removes the first node from the list
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public void RemoveFirst<T>()
     {
+        //Check if the list is empty
+        if (Head == null)
+            throw new InvalidOperationException("Cannot remove from empty list");
+
+        //Move Head to the next node
         Head = Head.Next;
         Count--;
+
+        //If list is now empty, Tail should also be null
+        if (Count == 0)
+            Tail = null;
     }
 
-    /// NOTE: dzel
-    public void RemoveLast(T value)
+    /// <summary>
+    /// Removes the last node from the list
+    /// </summary>
+    /// <param name="value"></param>
+
+    public void RemoveLast()
     {
-        RemoveLast(new MyLinkedListNode<T>(value));
-    }
-    private void RemoveLast(MyLinkedListNode<T> node)
-    {
-        if (Count != 0)
+        //Check if list is empty
+        if (Count == 0)
+            throw new InvalidOperationException("Cannot remove from empty list");
+
+        //Special case;only one node
+        if (Count == 1)
         {
-            if (Count == 1)
-            {
-                Head = null;
-                Tail = null;
-            }
-            else
-            {
-                MyLinkedListNode<T> current = Head;
-
-                while (current.Next != null)
-                {
-                    current = current.Next;
-                }
-
-                current.Next = null;
-                Tail = current;
-            }
-            Count--;
+            Head = null;
+            Tail = null;
         }
+        else
+        {
+            //Find the node Before the tail
+            MyLinkedListNode<T> current = Head;
+
+            //Stop when current.Next is the Tail
+            while(current.Next != Tail) 
+            {
+                current = current.Next;
+            }
+
+            //Disconnect the tail
+            current.Next = null;
+            Tail = current;
+        }
+
+        Count--;
     }
     #endregion Remove
 }
