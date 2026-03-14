@@ -119,7 +119,7 @@ public class MyLinkedList<T> : ICollection<T>
     /// Removes the first node from the list
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public void RemoveFirst<T>()
+    public void RemoveFirst()
     {
         //Check if the list is empty
         if (Head == null)

@@ -6,6 +6,14 @@
     <BuildType Name="Stack" />
   </Configurations>
   <Project Path="MyLinkedListProj/MyLinkedListProj.csproj" />
+  <Project Path="MyQueueProj/MyQueueProj.csproj" Id="81e6e9c1-0acc-4b0f-8918-209fb2ffdba6">
+    <BuildType Solution="LinkedList|*" Project="Release" />
+    <BuildType Solution="Stack|*" Project="Debug" />
+  </Project>
+  <Project Path="MyStackArrayProj/MyStackArrayProj.csproj" Id="4776d48f-b91c-4cdf-9d2a-0cce778c9312">
+    <BuildType Solution="LinkedList|*" Project="Release" />
+    <BuildType Solution="Stack|*" Project="Debug" />
+  </Project>
   <Project Path="MyStackProj/MyStackProj.csproj">
     <BuildType Solution="LinkedList|*" Project="Release" />
     <BuildType Solution="Stack|*" Project="Debug" />

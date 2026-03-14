@@ -1,51 +1,51 @@
 ﻿using System;
-using System.Collections;
 
 namespace StackArray
 {
     class MyStack<T>
     {
-        private T[] elements; 
-        private int top;     
-        private int max;      
+        private T[] elements;
+        private int top;
+        private int max;
 
         public MyStack(int size)
         {
-            elements = new int[size];
-            top = -1; // -1 means the stack is empty
             max = size;
+            elements = new T[max];
+            top = -1;
         }
 
-        public void Push(int item)
+        public void Push(T item)
         {
             if (top == max - 1)
             {
-                Console.WriteLine("Stack Overflow!"); // No more room
+                Console.WriteLine("Stack Overflow!");
                 return;
             }
-            elements[++top] = item; // Increment top, then add item
+            elements[++top] = item;
         }
-
-        public int Pop()
+        public T Pop()
         {
             if (top == -1)
             {
                 Console.WriteLine("Stack Underflow!");
-                return -1;
+                return default(T);
             }
-            return elements[top--]; // Return item, then decrement top
+            return elements[top--];
         }
 
-        public int Peek()
+        public T Peek()
         {
+            if (top == -1) return default(T);
             return elements[top];
         }
 
         public void Display()
         {
+            if (top == -1) { Console.WriteLine("Stack is empty."); return; }
             for (int i = top; i >= 0; i--)
             {
-                Console.WriteLine(elements[i]);
+                Console.WriteLine(i + ": " + elements[i]);
             }
         }
     }
@@ -54,7 +54,7 @@ namespace StackArray
     {
         static void Main()
         {
-            MyStack stack = new MyStack(5); // Stack with capacity of 5
+            MyStack<int> stack = new MyStack<int>(5);
 
             stack.Push(10);
             stack.Push(20);
@@ -66,8 +66,9 @@ namespace StackArray
             Console.WriteLine("Top element: " + stack.Peek());
             Console.WriteLine("Removed: " + stack.Pop());
 
-            Console.WriteLine("Stack after Pop:");
+            Console.WriteLine("\nStack after Pop:");
             stack.Display();
+
         }
     }
 }
