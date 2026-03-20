@@ -169,5 +169,10 @@ public class MyLinkedList<T> : ICollection<T>
 
         Count--;
     }
+
+    public void RemoveFirst<T1>()
+    {
+        throw new NotImplementedException();
+    }
     #endregion Remove
 }

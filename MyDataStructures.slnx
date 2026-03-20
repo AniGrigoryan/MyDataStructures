@@ -5,6 +5,10 @@
     <BuildType Name="Release" />
     <BuildType Name="Stack" />
   </Configurations>
+  <Project Path="BinaryTreeProj/MyBinaryTreeProj.csproj" Id="01a0ce5c-7751-44d6-9dba-2ee9e8265a92">
+    <BuildType Solution="LinkedList|*" Project="Release" />
+    <BuildType Solution="Stack|*" Project="Debug" />
+  </Project>
   <Project Path="MyLinkedListProj/MyLinkedListProj.csproj" />
   <Project Path="MyQueueProj/MyQueueProj.csproj" Id="81e6e9c1-0acc-4b0f-8918-209fb2ffdba6">
     <BuildType Solution="LinkedList|*" Project="Release" />
