@@ -9,7 +9,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\BinaryTreeProj\MyBinaryTreeProj.csproj" />
 		<ProjectReference Include="..\MyLinkedListProj\MyLinkedListProj.csproj" />
+		<ProjectReference Include="..\MyQueueProj\MyQueueProj.csproj" />
 		<ProjectReference Include="..\MyStackProj\MyStackProj.csproj" />
 	</ItemGroup>
 
