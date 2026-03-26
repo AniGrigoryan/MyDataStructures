@@ -168,8 +168,8 @@ public class MyBinaryTree<T> : IEnumerable<T>
         return PostOrderTraversal().GetEnumerator();
     }
 
-    public IEnumerable<object> PostOrder()
+    public IEnumerable<T> PostOrder()
     {
-        throw new NotImplementedException();
+        return PostOrderTraversal();
     }
 }
