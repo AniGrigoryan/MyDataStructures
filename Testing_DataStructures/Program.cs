@@ -1,7 +1,9 @@
-﻿using MyLinkedListProj;
+﻿using MyBinaryTreeProj;
+using MyLinkedListProj;
 using MyQueueProj;
+using MyHashTableProj;
 using MyStackProj;
-using MyBinaryTreeProj;
+using System.Collections;
 
 namespace Testing_DataStructures;
 
@@ -88,39 +90,72 @@ public class Program
         #endregion Queue
 
         #region BinaryTree
+
         Console.WriteLine("---Binary Tree---");
+
         var tree = new MyBinaryTree<int>();
-        tree.Add(10);
-        tree.Add(5);
-        tree.Add(15);
+
+        // Add elements
+        tree.Add(4);
+        tree.Add(2);
+        tree.Add(6);
+        tree.Add(1);
         tree.Add(3);
+        tree.Add(5);
+        tree.Add(7);
 
-        Console.WriteLine("Tree contains 5: " + tree.Contains(5)); 
-        Console.WriteLine("Tree contains 20: " + tree.Contains(20)); 
-
-        Console.WriteLine("Post-Order Traversal:");
-        foreach (var value in tree) 
+        // PostOrder
+        Console.WriteLine("PostOrder:");
+        foreach (var item in tree.PostOrder())
         {
-            Console.Write(value + " ");
+            Console.Write(item + " ");
         }
-        
-        Console.WriteLine("\n");
+        Console.WriteLine();
 
-        Console.WriteLine("Removing node 20 (leaf)...");
-        tree.Remove(20);
-        Console.WriteLine("Contains 20: " + tree.Contains(20)); 
+        // Remove leaf
+        Console.WriteLine("Remove (2):");
+        tree.Remove(2);
+        foreach (var item in tree)
+        {
+            Console.Write(item + " ");
+        }
+        Console.WriteLine();
 
-        Console.WriteLine("Removing node 30 (node with one child)...");
-        tree.Remove(30);
+        // Remove node with one child
+        Console.WriteLine("Remove node with one child (3):");
+        tree.Remove(3);
+        foreach (var item in tree)
+        {
+            Console.Write(item + " ");
+        }
+        Console.WriteLine();
 
-        Console.WriteLine("Removing node 50 (root with two children)...");
-        tree.Remove(50);
+        // Remove node with two children
+        Console.WriteLine("Remove node with two children (5):");
+        tree.Remove(5);
+        foreach (var item in tree)
+        {
+            Console.Write(item + " ");
+        }
+        Console.WriteLine();
 
-        Console.WriteLine($"Final Count: {tree.Count}"); 
-        Console.WriteLine("Testing Binary Tree Finished!");
-        #endregion
+        #endregion BinaryTree
 
         #region HashTable
+        Console.WriteLine("---Hash Table---");
+        string testString = "Lorem ipsum dolor";
+
+        // Additive Hash
+        int additive = MyHashTable.AdditiveHash(testString);
+        Console.WriteLine($"Additive Hash of \"{testString}\"  {additive}");
+
+        // Folding Hash
+        int folding = MyHashTable.MyFoldingHash(testString);
+        Console.WriteLine($"Folding Hash of \"{testString}\" {folding}");
+
+        // DJB2 Hash
+        int djb2 = MyHashTable.Djb2(testString);
+        Console.WriteLine($"DJB2 Hash of \"{testString}\"  {djb2}");
 
         #endregion HashTable
 
