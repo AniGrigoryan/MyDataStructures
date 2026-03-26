@@ -1,28 +1,42 @@
-﻿namespace MyHashTableProj;
+﻿namespace MyHashTableAlgorithms;
 
-public class MyHashTable
+internal class Program
 {
-
-    #region Additive Hash
-    public static int AdditiveHash(string input)
+    static void Main(string[] args)
     {
-        int hashValue = 0;
-        foreach (char c in input)
-            hashValue += c;
-        return hashValue;
+        GetNextBytes(startIndex: 0, "lore");
+        string input = string.Empty;
+
+        while (!input.Equals("quit", StringComparison.OrdinalIgnoreCase))
+        {
+            Console.Write("> ");
+            Console.WriteLine("Folding: {0}", FoldingHash(input));
+        }
     }
-    #endregion
 
-    #region Folding Hash
-    public static int MyFoldingHash(string input)
+    private static int AdditiveHash(string input)
+    {
+        int currentHash = 0;
+        foreach (char c in input)
+        {
+            unchecked
+            {
+                currentHash += (int)c;
+            }
+        }
+        return currentHash;
+    }
+
+    private static int FoldingHash(string input)
     {
         int hashValue = 0;
+
         int startIndex = 0;
         int currentFourBytes;
 
         do
         {
-            currentFourBytes = MyGetNextBytes(startIndex, input);
+            currentFourBytes = GetNextBytes(startIndex, input);
             unchecked
             {
                 hashValue += currentFourBytes;
@@ -32,39 +46,24 @@ public class MyHashTable
 
         return hashValue;
     }
-    #endregion
-
-    #region Folding Helpers
-    public static int MyGetNextBytes(int startIndex, string str)
+    private static int GetNextBytes(int startIndex, string str)
     {
-        int result = 0;
-        for (int i = 0; i < 4; i++)
+        int currentFourBytes = 0;
+
+        currentFourBytes += GetByte(str, startIndex);
+        currentFourBytes += GetByte(str, index: startIndex + 1) << 8;
+        currentFourBytes += GetByte(str, index: startIndex + 2) << 16;
+        currentFourBytes += GetByte(str, index: startIndex + 3) << 24;
+
+        return currentFourBytes;
+    }
+
+    private static int GetByte(string str, int index)
+    {
+        if (index < str.Length)
         {
-            int charIndex = startIndex + i;
-            if (charIndex < str.Length)
-                result |= MyGetByte(str, charIndex) << (i * 8);
+            return (int)str[index];
         }
-        return result;
+        return 0;
     }
-
-    public static int MyGetByte(string str, int index)
-    {
-        return str[index] & 0xFF;
-    }
-    #endregion
-
-    #region DJB2 Hash
-    public static int Djb2(string input)
-    {
-        int hashValue = 5381;
-        foreach (char c in input)
-        {
-            unchecked
-            {
-                hashValue = ((hashValue << 5) + hashValue) + c;
-            }
-        }
-        return hashValue;
-    }
-    #endregion
 }
