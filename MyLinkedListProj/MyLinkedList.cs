@@ -113,6 +113,36 @@ public class MyLinkedList<T> : ICollection<T>
         }
             Count++;
     }
+
+    public void AddBefore(MyLinkedListNode<T> node, T value)
+    {
+        if (node == null)
+            throw new ArgumentNullException(nameof(node));
+
+        MyLinkedListNode<T> newNode = new MyLinkedListNode<T>(value);
+
+        if (node == Head)
+        {
+            newNode.Next = Head;
+            Head = newNode;
+        }
+        else
+        {
+            MyLinkedListNode<T> current = Head;
+            while (current != null && current.Next != node)
+            {
+                current = current.Next;
+            }
+
+            if (current == null)
+                throw new InvalidOperationException("Node not found");
+
+            current.Next = newNode;
+            newNode.Next = node;
+        }
+
+        Count++;
+    }
     #endregion Add
     #region Remove
     /// <summary>
