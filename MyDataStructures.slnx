@@ -1,37 +1,12 @@
 <Solution>
-  <Configurations>
-    <BuildType Name="Debug" />
-    <BuildType Name="LinkedList" />
-    <BuildType Name="Release" />
-    <BuildType Name="Stack" />
-  </Configurations>
-  <Project Path="../../../../../../source/repos/MyDataStructures/BinaryTreeProj/MyBinaryTreeProj.csproj" Id="01a0ce5c-7751-44d6-9dba-2ee9e8265a92">
-    <BuildType Solution="LinkedList|*" Project="Release" />
-    <BuildType Solution="Stack|*" Project="Debug" />
-  </Project>
-  <Project Path="../../../../../../source/repos/MyDataStructures/MyHashTable.cs/MyHashTableProj.csproj" Id="901618ce-6556-405e-8656-64a9c4f3f4f6">
-    <BuildType Solution="LinkedList|*" Project="Release" />
-    <BuildType Solution="Stack|*" Project="Debug" />
-  </Project>
-  <Project Path="../../../../../../source/repos/MyDataStructures/MyLinkedListProj/MyLinkedListProj.csproj" />
-  <Project Path="../../../../../../source/repos/MyDataStructures/MyPriortyKey.cs/MyPriorityQueueProj.csproj" Id="926f6e26-0a02-415d-a7fa-34f5391c5335">
-    <BuildType Solution="LinkedList|*" Project="Release" />
-    <BuildType Solution="Stack|*" Project="Debug" />
-  </Project>
-  <Project Path="../../../../../../source/repos/MyDataStructures/MyQueueProj/MyQueueProj.csproj" Id="81e6e9c1-0acc-4b0f-8918-209fb2ffdba6">
-    <BuildType Solution="LinkedList|*" Project="Release" />
-    <BuildType Solution="Stack|*" Project="Debug" />
-  </Project>
-  <Project Path="../../../../../../source/repos/MyDataStructures/MyStackArrayProj/MyStackArrayProj.csproj" Id="4776d48f-b91c-4cdf-9d2a-0cce778c9312">
-    <BuildType Solution="LinkedList|*" Project="Release" />
-    <BuildType Solution="Stack|*" Project="Debug" />
-  </Project>
-  <Project Path="../../../../../../source/repos/MyDataStructures/MyStackProj/MyStackProj.csproj">
-    <BuildType Solution="LinkedList|*" Project="Release" />
-    <BuildType Solution="Stack|*" Project="Debug" />
-  </Project>
-  <Project Path="../../../../../../source/repos/MyDataStructures/Testing_DataStructures/Testing_DataStructures.csproj">
-    <BuildType Solution="LinkedList|*" Project="Release" />
-    <BuildType Solution="Stack|*" Project="Debug" />
-  </Project>
+  <Project Path="BinaryTreeProj/MyBinaryTreeProj.csproj" />
+  <Project Path="MyHashTable.cs/MyHashTableProj.csproj" />
+  <Project Path="MyLinkedListProj/MyLinkedListProj.csproj" />
+  <Project Path="MyPriortyKey.cs/MyPriorityQueueProj.csproj" />
+  <Project Path="MyQueueProj/MyQueueProj.csproj" />
+  <Project Path="MySetProj/MySetProj.csproj" Id="4c876cc0-e373-486b-90de-70e65bdd0d6b" />
+  <Project Path="MyStackArrayProj/MyStackArrayProj.csproj" />
+  <Project Path="MyStackProj/MyStackProj.csproj" />
+  <Project Path="Testing_DataStructures/Testing_DataStructures.csproj" />
+  <Project Path="WpfApp/WpfApp.csproj" Id="c32ff48b-3dae-4f73-8326-f0938192bada" />
 </Solution>
