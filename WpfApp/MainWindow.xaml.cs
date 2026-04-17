@@ -81,18 +81,61 @@ public partial class MainWindow : Window
         }
     }
 
-    private object GetMySetByName(string? v)
+    private MySet<Students> GetMySetByName(string? name)
     {
-        throw new NotImplementedException();
+        return allSets[name];
     }
 
-    private void DisplayMySetData(object value, ListBox leftMembers)
+    private void DisplayMySetData(MySet<Students> set, ListBox listBox)
     {
-        throw new NotImplementedException();
+        foreach (var student in set)
+        {
+            listBox.Items.Add(student.Name);
+        }
     }
 
-    private void ListBox_SelectionChanged()
+    private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
+        var listBox = sender as ListBox;
+        var selectedItem = listBox.SelectedItem;
 
+        MessageBox.Show(selectedItem.ToString());
+    }
+
+    private void evaluateButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (leftSet.SelectedItem == null || rightSet.SelectedItem == null || operation.SelectedItem == null)
+        {
+            MessageBox.Show("Please select both sets and operation!");
+            return;
+        }
+
+        var left = GetMySetByName(leftSet.SelectedItem.ToString());
+        var right = GetMySetByName(rightSet.SelectedItem.ToString());
+        var op = operation.SelectedItem.ToString();
+
+        MySet<Students> result = new MySet<Students>();
+
+        switch (op)
+        {
+            case "UNION":
+                result = left.Union(right);
+                break;
+
+            case "INTERSECTION":
+                result = left.Intersection(right);
+                break;
+
+            case "DIFFERENCE":
+                result = left.Difference(right);
+                break;
+
+            case "SYMETRIC DIFF":
+                result = left.SymmetricDifference(right);
+                break;
+        }
+
+        resultSet.Items.Clear();
+        DisplayMySetData(result, resultSet);
     }
 }
