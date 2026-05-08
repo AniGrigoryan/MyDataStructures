@@ -2,6 +2,7 @@
 using MyLinkedListProj;
 using MyQueueProj;
 using MyStackProj;
+using MyBubbleSortProj;
 using System.Collections;
 
 namespace Testing_DataStructures;
@@ -12,6 +13,7 @@ public class Program
     {
         Console.WriteLine("---TESTING--");
 
+        MyBubleSort();
 
         #region LinkedList
         var linkedList = new MyLinkedList<string>();
@@ -139,6 +141,18 @@ public class Program
         Console.WriteLine();
 
         #endregion BinaryTree
+    }
+    #region Bubble Sort
+    static void MyBubleSort()
+    {
+        int[] numbers = { 52, 10, 85, 24, 61, 3, 11 };
+        MyBubbleSort<int> intSorter = new MyBubbleSort<int>();
+
+        Console.WriteLine("Original numbers: " + string.Join(", ", numbers));
+        intSorter.Sort(numbers);
+        Console.WriteLine("Sorted numbers: " + string.Join(", ", numbers));
 
     }
+    #endregion Bubble Sort
+
 }

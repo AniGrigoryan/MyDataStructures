@@ -1,5 +1,7 @@
 <Solution>
   <Project Path="BinaryTreeProj/MyBinaryTreeProj.csproj" />
+  <Project Path="MyBubbleSortProj/MyBubbleSortProj.csproj" Id="e4329ebf-7442-43f1-bb86-1db7caac8805" />
+  <Project Path="MyChessProj1/MyChessProj1.csproj" Id="29c2394b-62cf-4267-8840-089feb73d623" />
   <Project Path="MyHashTable.cs/MyHashTableProj.csproj" />
   <Project Path="MyLinkedListProj/MyLinkedListProj.csproj" />
   <Project Path="MyPriortyKey.cs/MyPriorityQueueProj.csproj" />
