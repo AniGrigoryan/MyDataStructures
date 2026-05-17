@@ -2,7 +2,7 @@
 
 namespace MyBubbleSortProj;
 
-internal class MyMergeSort<T> where T : IComparable<T>
+public class MyMergeSort<T> where T : IComparable<T>
 {
     public void Sort(T[] items)
     {

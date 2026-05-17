@@ -13,7 +13,16 @@ public class Program
     {
         Console.WriteLine("---TESTING--");
 
+        Console.WriteLine("---Bubble Sort--");
         MyBubleSort();
+        Console.WriteLine("---Insertion Sort--");
+        MyInsertionSort();
+        Console.WriteLine("---Selection Sort--");
+        MySelectionSort();
+        Console.WriteLine("---Quick Sort--");
+        MyQuickSort();
+        Console.WriteLine("---Merge Sort--");
+        MyMergeSort();
 
         #region LinkedList
         var linkedList = new MyLinkedList<string>();
@@ -151,8 +160,55 @@ public class Program
         Console.WriteLine("Original numbers: " + string.Join(", ", numbers));
         intSorter.Sort(numbers);
         Console.WriteLine("Sorted numbers: " + string.Join(", ", numbers));
-
     }
     #endregion Bubble Sort
+
+    #region Selection Sort
+    static void MySelectionSort()
+    {
+        int[] numbers = { 52, 10, 85, 24, 61, 3, 11 };
+        MySelectionSort<int> intSorter = new MySelectionSort<int>();
+
+        Console.WriteLine("Original numbers: " + string.Join(", ", numbers));
+        intSorter.Sort(numbers);
+        Console.WriteLine("Sorted numbers: " + string.Join(", ", numbers));
+    }
+    #endregion Selection Sort
+
+    #region Insertion Sort
+    static void MyInsertionSort()
+    {
+        int[] numbers = { 52, 10, 85, 24, 61, 3, 11 };
+        MyInsertionSort<int> intSorter = new MyInsertionSort<int>();
+
+        Console.WriteLine("Original numbers: " + string.Join(", ", numbers));
+        intSorter.Sort(numbers);
+        Console.WriteLine("Sorted numbers: " + string.Join(", ", numbers));
+    }
+    #endregion Insertion Sort
+
+    #region Quick Sort
+    static void MyQuickSort()
+    {
+        int[] numbers = { 52, 10, 85, 24, 61, 3, 11 };
+        MyQuickSort<int> intSorter = new MyQuickSort<int>();
+
+        Console.WriteLine("Original numbers: " + string.Join(", ", numbers));
+        intSorter.Sort(numbers);
+        Console.WriteLine("Sorted numbers: " + string.Join(", ", numbers));
+    }
+    #endregion Quick Sort
+
+    #region Merge Sort
+    static void MyMergeSort()
+    {
+        int[] numbers = { 52, 10, 85, 24, 61, 3, 11 };
+        MyMergeSort<int> intSorter = new MyMergeSort<int>();
+
+        Console.WriteLine("Original numbers: " + string.Join(", ", numbers));
+        intSorter.Sort(numbers);
+        Console.WriteLine("Sorted numbers: " + string.Join(", ", numbers));
+    }
+    #endregion Merge Sort
 
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MyBubbleSortProj;
 
-internal class MySelectionSort<T> where T : IComparable<T>
+public class MySelectionSort<T> where T : IComparable<T>
 {
     public void Sort(T[] items)
     {

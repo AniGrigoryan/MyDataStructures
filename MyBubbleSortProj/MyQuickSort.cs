@@ -1,6 +1,6 @@
 ﻿namespace MyBubbleSortProj;
 
-internal class MyQuickSort<T> where T : IComparable<T>
+public class MyQuickSort<T> where T : IComparable<T>
 {
     public void Sort(T[] items)
     {
